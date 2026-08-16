@@ -22,47 +22,264 @@
         <title>Dashboard WebGIS Antam Pongkor</title>
 		<style>
 /* =========================================
-   DASHBOARD WEBGIS ANTAM PONGKOR
+   DASHBOARD WEBGIS ANTAM - LAYOUT 1
    ========================================= */
 
-/* ---------- HEADER ---------- */
+:root {
+    --antam-dark: #002b2b;
+    --antam-dark-2: #003d3d;
+    --antam-teal: #00a6a6;
+    --antam-gold: #f5b400;
+    --dashboard-white: #ffffff;
+}
 
+/* HEADER */
 #dashboard-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 70px;
-
-    background: #1f2937;
+    position: relative;
+    width: 100%;
+    height: 90px;
+    background: linear-gradient(135deg, #001f1f, #003b3b);
     color: white;
-
-    z-index: 2000;
-
     display: flex;
     align-items: center;
-
-    padding: 0 28px;
-
+    padding: 0 24px;
     box-sizing: border-box;
-
-    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    z-index: 2000;
+    border-bottom: 2px solid var(--antam-teal);
 }
 
-#dashboard-header h1 {
+/* LOGO */
+#antam-logo {
+    width: 155px;
+    max-height: 65px;
+    object-fit: contain;
+    object-position: left center;
+    margin-right: 25px;
+}
+
+/* JUDUL */
+#dashboard-title {
+    border-left: 1px solid rgba(255,255,255,0.3);
+    padding-left: 25px;
+}
+
+#dashboard-title h1 {
     margin: 0;
-    font-size: 24px;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+#dashboard-title p {
+    margin: 5px 0 0 0;
+    color: var(--antam-gold);
+    font-size: 15px;
     font-weight: 600;
+    letter-spacing: 0.8px;
 }
 
-#dashboard-header p {
-    margin: 0 0 0 20px;
-
-    font-size: 13px;
-    color: #d1d5db;
+/* JAM DAN TANGGAL */
+#dashboard-datetime {
+    margin-left: auto;
+    min-width: 250px;
+    padding: 12px 20px;
+    border: 1px solid rgba(0, 166, 166, 0.5);
+    border-radius: 12px;
+    background: rgba(0,0,0,0.15);
+    text-align: center;
 }
 
+#dashboard-date {
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #d9eeee;
+}
 
+#dashboard-time {
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+#dashboard-timezone {
+    font-size: 12px;
+    color: var(--antam-gold);
+    margin-left: 5px;
+}
+
+/* LAYOUT */
+#dashboard-layout {
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - 90px);
+    background: #eef3f3;
+}
+
+/* SIDEBAR */
+#dashboard-sidebar {
+    width: 270px;
+    min-width: 270px;
+    background: linear-gradient(180deg, #002b2b, #001d1d);
+    color: white;
+    padding: 20px 15px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+/* JUDUL SIDEBAR */
+.sidebar-section-title {
+    color: #00c6c6;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 12px 8px 10px;
+}
+
+/* MENU */
+.dashboard-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard-menu li {
+    margin-bottom: 5px;
+}
+
+.dashboard-menu button {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: white;
+    text-align: left;
+    padding: 11px 12px;
+    border-radius: 7px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.dashboard-menu button:hover,
+.dashboard-menu button.active {
+    background: #008f8f;
+}
+
+/* PEMBATAS */
+.sidebar-divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    margin: 18px 5px;
+}
+
+/* FILTER LAYER */
+.layer-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 7px;
+    font-size: 14px;
+}
+
+/* TOGGLE */
+.layer-toggle {
+    position: relative;
+    width: 38px;
+    height: 20px;
+}
+
+.layer-toggle input {
+    display: none;
+}
+
+.layer-slider {
+    position: absolute;
+    inset: 0;
+    background: #777;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.layer-slider:before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 2px;
+    top: 2px;
+    background: white;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.layer-toggle input:checked + .layer-slider {
+    background: #00a6a6;
+}
+
+.layer-toggle input:checked + .layer-slider:before {
+    transform: translateX(18px);
+}
+
+/* FILTER JENIS JALAN */
+#jenis-jalan {
+    width: 100%;
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid #00a6a6;
+    background: #003737;
+    color: white;
+    font-size: 14px;
+}
+
+/* AREA PETA */
+#dashboard-map-area {
+    flex: 1;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+/* MAP QGIS2WEB */
+#dashboard-map-area #map {
+    width: 100% !important;
+    height: calc(100vh - 114px) !important;
+    min-height: 600px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+
+    #dashboard-header {
+        height: auto;
+        min-height: 80px;
+        flex-wrap: wrap;
+        padding: 12px;
+    }
+
+    #antam-logo {
+        width: 110px;
+    }
+
+    #dashboard-title h1 {
+        font-size: 21px;
+    }
+
+    #dashboard-title p {
+        font-size: 11px;
+    }
+
+    #dashboard-datetime {
+        margin-left: auto;
+        min-width: 180px;
+    }
+
+    #dashboard-sidebar {
+        width: 220px;
+        min-width: 220px;
+    }
+}
 /* ---------- PETA ---------- */
 
 #map {
