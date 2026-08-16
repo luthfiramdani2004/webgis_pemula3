@@ -506,17 +506,27 @@ body {
 }
 
 #sidebar-toggle {
+    position: fixed !important;
+    left: 15px !important;
+    top: 15px !important;
+
     width: 42px;
     height: 42px;
+
     border: 1px solid rgba(0,255,255,0.15);
     border-radius: 7px;
+
     background: #001f26;
     color: #ffffff;
+
     font-size: 25px;
     cursor: pointer;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    z-index: 99999 !important;
 }
 
 #sidebar-toggle:hover {
