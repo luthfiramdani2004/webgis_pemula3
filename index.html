@@ -48,16 +48,13 @@
     border-bottom: 2px solid var(--antam-teal);
 }
 
-/* LOGO */
 #antam-logo {
-    width: 155px;
-    max-height: 65px;
+    width: 100px;
+    height: 50px;
     object-fit: contain;
-    object-position: left center;
-    margin-right: 25px;
+    object-position: center;
 }
 
-/* JUDUL */
 #dashboard-title {
     border-left: 1px solid rgba(255,255,255,0.3);
     padding-left: 25px;
@@ -447,18 +444,26 @@ body {
 </style>
     </head>
     <body>
-		<!-- HEADER DASHBOARD -->
+<!-- HEADER DASHBOARD -->
 <div id="dashboard-header">
-<img src="Antam%20Logo%20-%20Colored%20-%20zonalogo.com.png" alt="Logo Antam">
+
+    <!-- LOGO ANTAM -->
+    <div id="antam-logo">
+        <img src="Antam%20Logo%20-%20Colored%20-%20zonalogo.com.png" alt="Logo Antam">
+    </div>
+
+    <!-- JUDUL -->
     <div id="dashboard-title">
         <h1>Dashboard WebGIS Antam Pongkor</h1>
         <p>Jaringan Jalan & Evakuasi Tambang</p>
     </div>
 
+    <!-- TANGGAL DAN WAKTU -->
     <div id="dashboard-datetime">
-        <div id="dashboard-date">-</div>
-        <div id="dashboard-time">-</div>
+        <div id="current-date">-</div>
+        <div id="current-time">-</div>
     </div>
+
 </div>
 		<!-- STATISTIK DASHBOARD -->
 <div id="dashboard-stats">
