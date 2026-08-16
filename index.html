@@ -743,8 +743,116 @@ body {
 #dashboard-title p {
     margin: 5px 0 0 0 !important;
 }
+/* =========================================================
+   SIDEBAR TOGGLE / RESPONSIVE
+   ========================================================= */
+
+/* Sidebar default */
+#sidebar {
+    transition: transform 0.3s ease !important;
+}
+
+/* Tombol toggle */
+#sidebar-toggle {
+    z-index: 5000 !important;
+}
+
+/* ================= SIDEBAR DITUTUP ================= */
+
+body.sidebar-closed #sidebar {
+    transform: translateX(-260px) !important;
+}
+
+/* Header kembali memenuhi layar */
+body.sidebar-closed #dashboard-header {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding-left: 80px !important;
+}
+
+/* Map kembali memenuhi layar */
+body.sidebar-closed #map {
+    margin-left: 0 !important;
+    width: 100% !important;
+}
+
+/* Tombol tetap terlihat walaupun sidebar ditutup */
+body.sidebar-closed #sidebar-toggle {
+    position: fixed !important;
+    left: 15px !important;
+    top: 15px !important;
+}
+
+
+/* =========================================================
+   MODE HP
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Sidebar awalnya tertutup di HP */
+    #sidebar {
+        transform: translateX(-260px) !important;
+        z-index: 4000 !important;
+    }
+
+    /* Header full layar */
+    #dashboard-header {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding-left: 75px !important;
+    }
+
+    /* Map full layar */
+    #map {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    /* Tombol hamburger selalu terlihat */
+    #sidebar-toggle {
+        position: fixed !important;
+        left: 10px !important;
+        top: 10px !important;
+        z-index: 5000 !important;
+    }
+
+    /* Saat sidebar dibuka */
+    body.sidebar-open #sidebar {
+        transform: translateX(0) !important;
+    }
+
+    body.sidebar-open #dashboard-header {
+        margin-left: 260px !important;
+        width: calc(100% - 260px) !important;
+    }
+
+    body.sidebar-open #map {
+        margin-left: 260px !important;
+        width: calc(100% - 260px) !important;
+    }
+}
 </style>
     </head>
+	<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const toggle = document.getElementById("sidebar-toggle");
+
+    if (!toggle) return;
+
+    toggle.addEventListener("click", function () {
+
+        if (window.innerWidth <= 768) {
+            document.body.classList.toggle("sidebar-open");
+        } else {
+            document.body.classList.toggle("sidebar-closed");
+        }
+
+    });
+
+});
+</script>
     <body>
 		<!-- SIDEBAR -->
 <div id="sidebar">
