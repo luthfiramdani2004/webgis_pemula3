@@ -234,15 +234,36 @@ body {
 <div id="dashboard-header">
 
     <div>
-        <h1>Dashboard WebGIS Antam Pongkor</h1>
+       <h1>Dashboard WebGIS Antam Pongkor</h1>
+        <p>Monitoring dan Visualisasi Data Spasial</p>
     </div>
 
-    <p>
-        Monitoring dan Visualisasi Data Spasial
-    </p>
+</div>
+		<!-- STATISTIK DASHBOARD -->
+<div id="dashboard-stats">
+
+    <div class="stat-card">
+        <div class="stat-title">Total Ruas Jalan</div>
+        <div class="stat-value" id="total-ruas">-</div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-title">Total Panjang Jalan</div>
+        <div class="stat-value" id="total-panjang">-</div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-title">Total Drive Time</div>
+        <div class="stat-value" id="total-drive-time">-</div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-title">Rata-rata Drive Time</div>
+        <div class="stat-value" id="rata-drive-time">-</div>
+    </div>
 
 </div>
-        <div id="map">
+<div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script>
