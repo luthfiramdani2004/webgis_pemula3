@@ -471,10 +471,399 @@ body {
     margin: 0 !important;
     padding: 0 !important;
 }
-</style>
+	/* =========================================================
+   SIDEBAR WEBGIS
+   ========================================================= */
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    background: #002f2f;
+    color: #ffffff;
+    z-index: 9999;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-shadow: 3px 0 12px rgba(0,0,0,0.25);
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER SIDEBAR */
+#sidebar-header {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    background: #002626;
+}
+
+#sidebar-toggle {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(0,255,255,0.15);
+    border-radius: 7px;
+    background: #001f26;
+    color: #ffffff;
+    font-size: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sidebar-toggle:hover {
+    background: #004444;
+}
+
+#sidebar-logo {
+    width: 115px;
+    height: auto;
+    max-height: 48px;
+    object-fit: contain;
+    margin-left: 12px;
+}
+
+/* SECTION */
+.sidebar-section {
+    padding: 13px 10px 10px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.sidebar-title {
+    color: #00d8d8;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 7px;
+    letter-spacing: 0.4px;
+}
+
+/* MENU */
+.sidebar-menu {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 8px;
+    margin: 2px 0;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.sidebar-menu span:first-child {
+    width: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.sidebar-menu:hover {
+    background: rgba(0,180,180,0.18);
+}
+
+.sidebar-menu.active {
+    background: #008f8f;
+    font-weight: bold;
+}
+
+/* FILTER ROW */
+.filter-row {
+    min-height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+/* SWITCH */
+.switch {
+    position: relative;
+    width: 27px;
+    height: 16px;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    background: #777;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: 2px;
+    top: 2px;
+    background: white;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.switch input:checked + .slider {
+    background: #00a6a6;
+}
+
+.switch input:checked + .slider:before {
+    transform: translateX(11px);
+}
+
+/* DROPDOWN */
+#jenis-jalan-filter {
+    width: 100%;
+    height: 24px;
+    padding: 0 7px;
+    border: 1px solid #718181;
+    border-radius: 4px;
+    background: #003535;
+    color: #ffffff;
+    font-size: 11px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+#jenis-jalan-filter:focus {
+    border-color: #00bcbc;
+}
+
+/* LEGENDA */
+.legend-item {
+    min-height: 19px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    padding-left: 2px;
+}
+
+.legend-line {
+    width: 17px;
+    height: 3px;
+    border-radius: 2px;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.jalan-arteri {
+    background: red;
+}
+
+.jalan-kolektor {
+    background: #ff8c00;
+}
+
+.jalan-lokal {
+    background: yellow;
+}
+
+.jalan-evakuasi {
+    background: #00ff00;
+}
+
+/* SCROLLBAR SIDEBAR */
+#sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+
+#sidebar::-webkit-scrollbar-track {
+    background: #002626;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+    background: #007878;
+    border-radius: 5px;
+}
+
+/* =========================================================
+   HEADER DASHBOARD - GESER KE KANAN
+   ========================================================= */
+
+#dashboard-header {
+    margin-left: 260px !important;
+    width: calc(100% - 260px) !important;
+}
+
+/* =========================================================
+   MAP - GESER KE KANAN
+   ========================================================= */
+
+#map {
+    margin-left: 260px !important;
+    width: calc(100% - 260px) !important;
+}
 </style>
     </head>
     <body>
+		<!-- SIDEBAR -->
+<div id="sidebar">
+
+    <!-- SIDEBAR HEADER -->
+    <div id="sidebar-header">
+        <button id="sidebar-toggle">☰</button>
+
+        <img src="Antam%20Logo%20Colored%20-%20zonallogo.com.png"
+             alt="Logo Antam"
+             id="sidebar-logo">
+    </div>
+
+    <!-- MENU -->
+    <div class="sidebar-section">
+        <div class="sidebar-title">MENU</div>
+
+        <div class="sidebar-menu active">
+            <span>⌂</span>
+            <span>Dashboard</span>
+        </div>
+
+        <div class="sidebar-menu">
+            <span>🗺</span>
+            <span>Peta</span>
+        </div>
+
+        <div class="sidebar-menu">
+            <span>♟</span>
+            <span>Jalur Evakuasi</span>
+        </div>
+
+        <div class="sidebar-menu">
+            <span>📍</span>
+            <span>Titik Kumpul</span>
+        </div>
+
+        <div class="sidebar-menu">
+            <span>♟</span>
+            <span>Fasilitas</span>
+        </div>
+
+        <div class="sidebar-menu">
+            <span>▤</span>
+            <span>Data &amp; Tabel</span>
+        </div>
+
+        <div class="sidebar-menu">
+            <span>ⓘ</span>
+            <span>Tentang</span>
+        </div>
+    </div>
+
+    <!-- FILTER LAYER -->
+    <div class="sidebar-section">
+        <div class="sidebar-title">FILTER LAYER</div>
+
+        <div class="filter-row">
+            <span>Jaringan Jalan</span>
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="filter-row">
+            <span>Jalur Evakuasi</span>
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="filter-row">
+            <span>Titik Kumpul</span>
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="filter-row">
+            <span>Fasilitas</span>
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="filter-row">
+            <span>Administrasi</span>
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <!-- FILTER JENIS JALAN -->
+    <div class="sidebar-section">
+        <div class="sidebar-title">FILTER JENIS JALAN</div>
+
+        <select id="jenis-jalan-filter">
+            <option>Semua Jenis</option>
+        </select>
+    </div>
+
+    <!-- LEGENDA -->
+    <div class="sidebar-section">
+        <div class="sidebar-title">LEGENDA</div>
+
+        <div class="legend-item">
+            <span class="legend-line jalan-arteri"></span>
+            <span>Jalan Arteri</span>
+        </div>
+
+        <div class="legend-item">
+            <span class="legend-line jalan-kolektor"></span>
+            <span>Jalan Kolektor</span>
+        </div>
+
+        <div class="legend-item">
+            <span class="legend-line jalan-lokal"></span>
+            <span>Jalan Lokal</span>
+        </div>
+
+        <div class="legend-item">
+            <span class="legend-line jalan-evakuasi"></span>
+            <span>Jalur Evakuasi</span>
+        </div>
+
+        <div class="legend-item">
+            <span>📍</span>
+            <span>Titik Kumpul</span>
+        </div>
+
+        <div class="legend-item">
+            <span>🏥</span>
+            <span>Fasilitas Kesehatan</span>
+        </div>
+
+        <div class="legend-item">
+            <span>🏫</span>
+            <span>Fasilitas Pendidikan</span>
+        </div>
+
+        <div class="legend-item">
+            <span>🏢</span>
+            <span>Kantor / Pemerintahan</span>
+        </div>
+    </div>
+
+</div>
 <!-- HEADER DASHBOARD -->
 <div id="dashboard-header">
 
