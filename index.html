@@ -878,8 +878,23 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
     <body>
 		<!-- SIDEBAR -->
-<!-- TOMBOL MENU -->
-<button id="sidebar-toggle">☰</button>
+<button id="sidebar-toggle" style="
+    position: fixed !important;
+    left: 15px !important;
+    top: 15px !important;
+    width: 45px !important;
+    height: 45px !important;
+    z-index: 99999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #001f26 !important;
+    color: white !important;
+    border: 1px solid rgba(0,255,255,0.3) !important;
+    border-radius: 7px !important;
+    font-size: 25px !important;
+    cursor: pointer !important;
+">☰</button>
 
 <!-- SIDEBAR -->
 <div id="sidebar">
