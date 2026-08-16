@@ -475,7 +475,7 @@ body {
         map.addLayer(layer_Jaringan_Jalan_Antam_1);
 			// Statistik Total Ruas Jalan
 document.getElementById('total-ruas').textContent =
-    layer_Jaringan_Jalan_Antam_1.getLayers().length;
+    json_Jaringan_Jalan_Antam_1.features.length;
         function pop_Jalur_Evakuasi_Antam_Junctions_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
