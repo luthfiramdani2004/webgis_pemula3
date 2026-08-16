@@ -805,50 +805,55 @@ body.sidebar-closed #sidebar-toggle {
         transform: translateX(-260px) !important;
         z-index: 4000 !important;
     }
-    #sidebar-toggle {
-        display: flex !important;
-        position: fixed !important;
-        left: 15px !important;
-        top: 15px !important;
-        width: 45px !important;
-        height: 45px !important;
-        z-index: 99999 !important;
-    }
-    /* Header full layar */
-    #dashboard-header {
-        margin-left: 0 !important;
-        width: 100% !important;
-        padding-left: 75px !important;
-    }
+   /* ==================================================
+   TOGGLE SIDEBAR - FIX
+   ================================================== */
 
-    /* Map full layar */
-    #map {
-        margin-left: 0 !important;
-        width: 100% !important;
-    }
+#sidebar-toggle {
+    display: flex !important;
+    position: fixed !important;
+    left: 15px !important;
+    top: 15px !important;
+    width: 45px !important;
+    height: 45px !important;
+    z-index: 99999 !important;
 
-    /* Tombol hamburger selalu terlihat */
-    #sidebar-toggle {
-        position: fixed !important;
-        left: 10px !important;
-        top: 10px !important;
-        z-index: 5000 !important;
-    }
+    align-items: center !important;
+    justify-content: center !important;
 
-    /* Saat sidebar dibuka */
-    body.sidebar-open #sidebar {
-        transform: translateX(0) !important;
-    }
+    background: #001f1f !important;
+    color: white !important;
+    border: 1px solid rgba(0,255,255,0.25) !important;
+    border-radius: 7px !important;
 
-    body.sidebar-open #dashboard-header {
-        margin-left: 260px !important;
-        width: calc(100% - 260px) !important;
-    }
+    font-size: 25px !important;
+    cursor: pointer !important;
+}
 
-    body.sidebar-open #map {
-        margin-left: 260px !important;
-        width: calc(100% - 260px) !important;
-    }
+/* Saat sidebar ditutup */
+body.sidebar-closed #sidebar {
+    transform: translateX(-320px) !important;
+}
+
+/* Tombol tetap terlihat saat sidebar tertutup */
+body.sidebar-closed #sidebar-toggle {
+    display: flex !important;
+    position: fixed !important;
+    left: 15px !important;
+    top: 15px !important;
+    z-index: 99999 !important;
+}
+
+/* Header saat sidebar ditutup */
+body.sidebar-closed #dashboard-header {
+    margin-left: 0 !important;
+    width: 100% !important;
+}
+
+/* Peta saat sidebar ditutup */
+body.sidebar-closed #map {
+    margin-left: 0 !important;
+    width: 100% !important;
 }
 </style>
     </head>
