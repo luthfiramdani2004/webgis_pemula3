@@ -473,6 +473,9 @@ body {
         });
         bounds_group.addLayer(layer_Jaringan_Jalan_Antam_1);
         map.addLayer(layer_Jaringan_Jalan_Antam_1);
+			// Statistik Total Ruas Jalan
+document.getElementById('total-ruas').textContent =
+    layer_Jaringan_Jalan_Antam_1.getLayers().length;
         function pop_Jalur_Evakuasi_Antam_Junctions_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
