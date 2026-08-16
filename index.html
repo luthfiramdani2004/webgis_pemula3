@@ -19,7 +19,115 @@
             height: 675px;
         }
         </style>
-        <title></title>
+        <title>Dashboard WebGIS Antam Pongkor</title>
+		<style>
+    /* =========================
+       DASHBOARD
+       ========================= */
+
+    #dashboard-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: #1f2937;
+        color: white;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        padding: 0 25px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+
+    #dashboard-header h1 {
+        margin: 0;
+        font-size: 22px;
+    }
+
+    #dashboard-header p {
+        margin: 4px 0 0 15px;
+        font-size: 13px;
+        color: #d1d5db;
+    }
+
+    #dashboard-info {
+        position: fixed;
+        top: 85px;
+        right: 20px;
+        width: 260px;
+        background: white;
+        z-index: 999;
+        padding: 18px;
+        border-radius: 10px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    }
+
+    #dashboard-info h2 {
+        margin: 0 0 15px 0;
+        font-size: 18px;
+    }
+
+    .dashboard-card {
+        background: #f3f4f6;
+        padding: 12px;
+        margin-bottom: 10px;
+        border-radius: 7px;
+    }
+
+    .dashboard-card .label {
+        font-size: 12px;
+        color: #6b7280;
+    }
+
+    .dashboard-card .value {
+        font-size: 22px;
+        font-weight: bold;
+        margin-top: 3px;
+    }
+
+    #dashboard-info button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+        background: #2563eb;
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    #dashboard-info button:hover {
+        background: #1d4ed8;
+    }
+
+    /* Supaya kontrol peta tidak tertutup header */
+    .leaflet-top {
+        margin-top: 70px;
+    }
+
+    @media (max-width: 700px) {
+
+        #dashboard-header {
+            height: 55px;
+            padding: 0 15px;
+        }
+
+        #dashboard-header h1 {
+            font-size: 16px;
+        }
+
+        #dashboard-header p {
+            display: none;
+        }
+
+        #dashboard-info {
+            width: 210px;
+            right: 10px;
+            top: 70px;
+        }
+    }
+</style>
     </head>
     <body>
         <div id="map">
