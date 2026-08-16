@@ -473,9 +473,42 @@ body {
         });
         bounds_group.addLayer(layer_Jaringan_Jalan_Antam_1);
         map.addLayer(layer_Jaringan_Jalan_Antam_1);
-			// Statistik Total Ruas Jalan
+	// ===============================
+// DASHBOARD STATISTIK JALAN
+// ===============================
+
+const jalanFeatures = json_Jaringan_Jalan_Antam_1.features;
+
+// Total ruas
+const totalRuas = jalanFeatures.length;
+
+// Total panjang jalan (meter)
+const totalPanjangMeter = jalanFeatures.reduce((total, feature) => {
+    return total + Number(feature.properties.Shape_Length || 0);
+}, 0);
+
+// Total drive time (menit)
+const totalDriveTime = jalanFeatures.reduce((total, feature) => {
+    return total + Number(feature.properties.Drive_Time || 0);
+}, 0);
+
+// Rata-rata drive time (menit)
+const rataDriveTime = totalRuas > 0
+    ? totalDriveTime / totalRuas
+    : 0;
+
+// Masukkan ke dashboard
 document.getElementById('total-ruas').textContent =
-    json_Jaringan_Jalan_Antam_1.features.length;
+    totalRuas;
+
+document.getElementById('total-panjang').textContent =
+    (totalPanjangMeter / 1000).toFixed(2) + ' km';
+
+document.getElementById('total-drive-time').textContent =
+    totalDriveTime.toFixed(2) + ' menit';
+
+document.getElementById('rata-drive-time').textContent =
+    rataDriveTime.toFixed(2) + ' menit';
         function pop_Jalur_Evakuasi_Antam_Junctions_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
