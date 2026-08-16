@@ -767,25 +767,8 @@ body {
     z-index: 5000 !important;
 }
 
-/* ==================================================
-   TUTUP MENU - HEADER SIDEBAR TETAP
-   ================================================== */
-
-/* Sidebar tetap di tempat */
-#sidebar {
-    transform: translateX(0) !important;
-}
-
-/* Hanya isi menu yang bergerak */
-body.sidebar-closed #sidebar .sidebar-section {
-    transform: translateX(-320px) !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-
-/* Animasi isi menu */
-#sidebar .sidebar-section {
-    transition: transform 0.3s ease, opacity 0.2s ease !important;
+body.sidebar-closed #sidebar {
+    transform: translateX(-260px) !important;
 }
 
 /* Header kembali memenuhi layar */
