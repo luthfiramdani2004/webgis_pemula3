@@ -539,14 +539,24 @@ body {
 }
 
 #sidebar-logo {
-    width: 150px;
-    height: auto;
-    
-    max-width: 90%;
-    max-height: 60px;
-    
-    object-fit: contain;
-    display: block;
+    position: absolute !important;
+
+    left: 50% !important;
+    top: 50% !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    width: 150px !important;
+    height: auto !important;
+
+    max-width: 150px !important;
+    max-height: 60px !important;
+
+    object-fit: contain !important;
+    object-position: center !important;
+
+    display: block !important;
+    margin: 0 !important;
 }
 
 /* SECTION */
